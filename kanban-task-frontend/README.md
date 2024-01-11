@@ -2,7 +2,12 @@
 
 A app for your daily tasks
 
+## How to run
+
+run `docker-compose up`
+
 ## Contributors
+
 <div style="display:flex; gap: 20px">
 <div style="display:flex; flex-direction: column; text-align:center;">
 
