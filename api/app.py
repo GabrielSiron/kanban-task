@@ -1,9 +1,10 @@
 from apiflask import APIFlask
 
 
-def create_app():
-    app = APIFlask(__name__)
+app = APIFlask(__name__)
 
+
+def create_app():
     @app.get("/")
     def home():
         return "Hello, World!"
