@@ -1,0 +1,54 @@
+version: '3.3'
+  
+services:
+    db:
+        image: mysql:8.2.0
+        restart: always
+        container_name: db
+        environment:
+            MYSQL_USER: 'bloxs'
+            MYSQL_PASSWORD: 'password'
+            MYSQL_DATABASE: 'db'
+            MYSQL_ROOT_PASSWORD: 'password'
+        ports:
+            - '3306:3306'
+        expose:
+            - '3306'
+        volumes:
+            - db-volume:/var/run/mysqld
+            - ./init.sql:/data/application/init.sql
+        command: --init-file /data/application/init.sql
+    api:
+        build:
+            context: ./api/
+            dockerfile: Dockerfile
+        restart: always
+        container_name: api 
+        volumes: 
+            - ./api:/app
+            - db-volume:/var/run/mysqld
+        environment:
+            DB_HOST: localhost
+            DB_PORT: 3306
+            DB_NAME: db
+            DB_USER: bloxs
+            DB_PASSWORD: password
+            DB_DRIVER: mysql
+            SECRET_KEY: l8N8ZwSNiL
+        expose:
+            - '5000'
+        ports:
+            - '5000:5000'
+        command: flask run --reload --host=0.0.0.0
+        networks:
+            backend:
+                aliases:
+                    - db
+        depends_on:
+            - db
+networks:
+    backend:
+        external: true
+
+volumes:
+    db-volume: {}
