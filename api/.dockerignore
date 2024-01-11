@@ -1,7 +1,0 @@
-env
-venv
-.vscode
-.gitignore
-README.md
-.dockerignore
-.git
