@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  kanban_task_live_reload:
+    image: kanban_task_live_reload
+    build:
+      dockerfile: Dockerfile.develop
+      context: ./frontend
+    container_name: kanban-task-live-reload
+    restart: always
+    volumes:
+      - "./frontend:/app/"
+      - "/app/node_modules"
+    ports:
+      - "5173:5173"
+    command: "npm run dev"
