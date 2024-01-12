@@ -3,9 +3,9 @@ version: '3.3'
 services:
     kanban_task_live_reload:
         image: kanban_task_live_reload
-        build:
-        dockerfile: Dockerfile.develop
-        context: ./frontend
+        build: 
+            context: ./frontend
+            dockerfile: Dockerfile.develop
         container_name: kanban-task-live-reload
         restart: always
         volumes:
@@ -35,12 +35,12 @@ services:
             - backend
     api:
         build:
-            context: ./api/
+            context: ./backend/
             dockerfile: Dockerfile
         restart: always
         container_name: api 
         volumes: 
-            - ./api:/app
+            - ./backend:/app
             - db-volume:/var/run/mysqld
         environment:
             DB_HOST: localhost
