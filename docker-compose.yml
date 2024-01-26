@@ -36,12 +36,6 @@ services:
         ports:
             - '5000:5000'
         command: flask run --reload --host=0.0.0.0
-        networks:
-            backend:
-                aliases:
-                    - db
-        depends_on:
-            - db
 networks:
     backend:
         external: true
