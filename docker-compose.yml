@@ -1,16 +1,44 @@
-version: '3'
-
+version: '3.3'
+  
 services:
-  kanban_task_live_reload:
-    image: kanban_task_live_reload
-    build:
-      dockerfile: Dockerfile.develop
-      context: ./frontend
-    container_name: kanban-task-live-reload
-    restart: always
-    volumes:
-      - "./frontend:/app/"
-      - "/app/node_modules"
-    ports:
-      - "5173:5173"
-    command: "npm run dev"
+    kanban_task_live_reload:
+        image: kanban_task_live_reload
+        build: 
+            context: ./frontend
+            dockerfile: Dockerfile.develop
+        container_name: kanban-task-live-reload
+        restart: always
+        volumes:
+        - "./frontend:/app/"
+        - "/app/node_modules"
+        ports:
+        - "5173:5173"
+        command: "npm run dev"
+    api:
+        build:
+            context: ./backend/
+            dockerfile: Dockerfile
+        restart: always
+        container_name: api 
+        volumes: 
+            - ./backend:/app
+            - db-volume:/var/run/mysqld
+        environment:
+            DB_HOST: localhost
+            DB_PORT: 3306
+            DB_NAME: db
+            DB_USER: bloxs
+            DB_PASSWORD: password
+            DB_DRIVER: mysql
+            SECRET_KEY: l8N8ZwSNiL
+        expose:
+            - '5000'
+        ports:
+            - '5000:5000'
+        command: flask run --reload --host=0.0.0.0
+networks:
+    backend:
+        external: true
+
+volumes:
+    db-volume: {}
