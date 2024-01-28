@@ -44,7 +44,9 @@ Cada entidade terá seu próprio arquivo, onde seus testes devem ser implementad
 
 As alterações que realizamos nos models não refletem no Banco de Dados depois dele ter sido criado. Para que isso ocorra, nós devemos usar o Flask Migrate.
 
-Siga a documentação do Flask Migrate (https://flask-migrate.readthedocs.io/en/latest/) para adicionar futuras alterações de Banco.
+Se você nunca rodou a aplicação, as migrações de estrutura não serão necessárias. O Banco de Dados será gerado com a estrutura atual. Caso contrário, siga a documentação do Flask Migrate (https://flask-migrate.readthedocs.io/en/latest/) para que novas alterações sejam passadas ao banco, ou para adicionar futuras alterações.
+
+O Flask Migrate não necessariamente reconhecerá todas as mudanças realizadas. Portanto, talvez alguns dos scripts gerados tenham de ser manualmente alterados para que reflitam corretamente nossas modificações.
 
 ### Detalhes
 
