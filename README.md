@@ -40,6 +40,11 @@ Na pasta `test`, temos o seguinte esqueleto:
 ```
 
 Cada entidade terá seu próprio arquivo, onde seus testes devem ser implementados.
+## Usando o Flask Migrate
+
+As alterações que realizamos nos models não refletem no Banco de Dados depois dele ter sido criado. Para que isso ocorra, nós devemos usar o Flask Migrate.
+
+Siga a documentação do Flask Migrate (https://flask-migrate.readthedocs.io/en/latest/) para adicionar futuras alterações de Banco.
 
 ### Detalhes
 
@@ -69,6 +74,11 @@ OBS: nenhuma dependência do projeto é necessária ao pre-commit, por isso temo
 
 ![Gabriel Siron](https://avatars.githubusercontent.com/u/56319681?s=200&v=4 "Gabriel Siron")<br>
 [Gabriel Siron](https://github.com/GabrielSiron)
+</div>
+<div style="display:flex; flex-direction: column; text-align:center;">
+
+![Roberto](https://avatars.githubusercontent.com/u/130838869?s=200&v=4 "Gabriel Siron")<br>
+[Roberto](https://github.com/RobertsLuis)
 </div>
 </div>
 # kanban-task
