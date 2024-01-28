@@ -3,6 +3,7 @@ from infrastructure.database.base import BaseClass
 
 
 class Cycle(db.Model, BaseClass):
+    title = db.Column(db.String)
     limit_date = db.Column(db.DateTime)
 
     days = db.relationship('Day', backref='cycle')
