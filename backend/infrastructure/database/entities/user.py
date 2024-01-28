@@ -7,4 +7,5 @@ class User(db.Model, BaseClass):
     email = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
     cycles = db.relationship('Cycle', backref='user')
+    tags = db.relationship('Tag', backref='user')
 
