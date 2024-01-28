@@ -24,6 +24,23 @@ Se algum dos serviços não for necessário num dado momento, execute
 ```
 indicando o nome do serviço que você de fato fará uso.
 
+### Testes Unitários
+
+Testes unitários são de suma importância para o desenvolvimento sustentável de uma aplicação. Nossos testes rodam numa base de dados a parte, e devem abranger todos os endpoints que servimos na API.
+
+Na pasta `test`, temos o seguinte esqueleto:
+
+```
+| test/
+|---- seeder/
+|--------- __init__.py # arquivo que popula o database
+|---- __init__.py
+|---- data.py   # arquivo que alimenta o seeder
+|---- user.py   # arquivo de testes dos endpoints de user
+```
+
+Cada entidade terá seu próprio arquivo, onde seus testes devem ser implementados.
+
 ### Detalhes
 
 é possível configurar uma ferramenta de pre-commit na aplicação Python. Para isso, faça
