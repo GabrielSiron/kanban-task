@@ -62,7 +62,7 @@ export class CrudProvider {
         })
     }
 
-    async delete(entity: string, id: string){
+    async remove(entity: string, id: string){
         return new Promise((resolve, reject) => {
             this.restfulProvider.delete(process.env.BASE_URL || "https://localhost:8080", entity, id)
             .then((response) => {
