@@ -1,11 +1,11 @@
 import { RestfulProvider } from '../restful_provider';
-import { RequestParams, GetListResponse, RequestBody, GetDetailsResponse } from '../../types'
+import type { RequestParams, GetListResponse, RequestBody, GetDetailsResponse } from '../../types/index';
 
 export class CrudProvider {
     restfulProvider = new RestfulProvider()
-    async get_list(entity: string, params: RequestParams){
+    async get_list(entity: string, params: RequestParams = undefined){
         return new Promise<GetListResponse>((resolve, reject) => {
-            this.restfulProvider.get(process.env.BASE_URL || "https://localhost:8080", entity, params, {})
+            this.restfulProvider.get(import.meta.env.VITE_BASE_URL, entity, params, {})
             .then((response) => {
                 let data: GetListResponse = {
                     pagination: {
@@ -25,9 +25,9 @@ export class CrudProvider {
         })
     }
 
-    async get_details(entity: string, id: string | number, params: RequestParams){
+    async get_details(entity: string, id: string | number, params: RequestParams = undefined){
         return new Promise((resolve, reject) => {
-            this.restfulProvider.get(process.env.BASE_URL || "https://localhost:8080", entity, params, {}, id)
+            this.restfulProvider.get(import.meta.env.VITE_BASE_URL, entity, params, {}, id)
             .then((response) => {
                 let data: GetDetailsResponse = {...response.data}
                resolve(data); 
@@ -40,7 +40,7 @@ export class CrudProvider {
 
     async create(entity: string, body: RequestBody){
         return new Promise((resolve, reject) => {
-            this.restfulProvider.post(process.env.BASE_URL || "https://localhost:8080", entity, body)
+            this.restfulProvider.post(import.meta.env.VITE_BASE_URL, entity, body)
             .then((response) => {
                resolve(response); 
             })
@@ -52,7 +52,7 @@ export class CrudProvider {
 
     async update(entity: string, id: string, body: RequestBody){
         return new Promise((resolve, reject) => {
-            this.restfulProvider.put(process.env.BASE_URL || "https://localhost:8080", entity, id, body)
+            this.restfulProvider.put(import.meta.env.VITE_BASE_URL, entity, id, body)
             .then((response) => {
                resolve(response); 
             })
@@ -64,7 +64,7 @@ export class CrudProvider {
 
     async remove(entity: string, id: string){
         return new Promise((resolve, reject) => {
-            this.restfulProvider.delete(process.env.BASE_URL || "https://localhost:8080", entity, id)
+            this.restfulProvider.delete(import.meta.env.VITE_BASE_URL, entity, id)
             .then((response) => {
                resolve(response); 
             })
