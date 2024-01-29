@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import Input from '../components/Input.vue';
+import Button from '../components/Button.vue';
 
+var form = {name: '', email: '', password: '', repeat_password: ''}
 </script>
 <template>
     
@@ -12,9 +14,43 @@ import Input from '../components/Input.vue';
         <div class="form-container">
             <h1>Welcome</h1>
             <h4>Good to see you again</h4>
-            <Input class="text-input" placeholder="name" type="text" color="dark-primary"/>
-            <Input class="text-input" placeholder="email" type="text" color="dark-primary"/>
-            <Input class="text-input" placeholder="password" type="password" color="dark-primary"/>
+            <Input 
+                v-model="form.name"
+                @input="
+                ($event) => {
+                    form.name = $event.target.value
+                }" 
+                placeholder="name" 
+                type="text" 
+                color="dark-primary"/>
+            <Input 
+                v-model="form.email"
+                @input="
+                ($event) => {
+                    form.email = $event.target.value
+                }"
+                placeholder="email" 
+                type="text" 
+                color="dark-primary"/>
+            <Input 
+                v-model="form.password"
+                @input="
+                ($event) => {
+                    form.password = $event.target.value
+                }"
+                placeholder="password" 
+                type="password" 
+                color="dark-primary"/>
+            <Input 
+                v-model="form.repeat_password"
+                @input="
+                ($event) => {
+                    form.repeat_password = $event.target.value
+                }"
+                placeholder="repeat password" 
+                type="password" 
+                color="dark-primary"/>
+            <Button color="dark-primary" text="Create an account"></Button>
         </div>
     </div>
 </template>
@@ -55,10 +91,11 @@ h1, .form-container h4 {
     grid-template-columns: 1fr 1fr;
 }
 
-.text-input {
-    margin-bottom: 10px;
-    width: 40%;
+.input, .my-btn {
+    margin-bottom: 20px !important;
+    width: 60% !important;
 }
+
 .image-container {
     position: relative;
     justify-content: center;
@@ -108,6 +145,11 @@ h1, .form-container h4 {
     
     .image-container h2, .image-container h4 {
         display: none;
+    }
+
+    .input, .my-btn {
+        margin-bottom: 20px !important;
+        width: 80% !important;
     }
 }
 </style>
