@@ -8,9 +8,9 @@ export class RestfulProvider {
     async get(base_url: string, path: string, params: object = {}, headers: object = {}, id: string | number = ""): Promise<any> {
         
         const url = id != ""? `${base_url}/${path}/${id}` : `${base_url}/${path}`;
-
+        
         return new Promise ((resolve, reject) => {
-            axios.get(`${url}/${path}`, {params, headers})
+            axios.get(url, {params, headers})
             .then((response) => {
                 resolve(response);
             })
