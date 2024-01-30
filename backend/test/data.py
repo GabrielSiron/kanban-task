@@ -22,17 +22,17 @@ USERS = [
     {
         'name': 'Gabriel',
         'email': 'gabriel@gmail.com',
-        'password': 'password', # TODO Implement bycript
+        'password': 'Password1!', # TODO Implement bycript
     },
     {
         'name': 'Roberto',
         'email': 'roberto@gmail.com',
-        'password': 'password', # TODO Implement bycript
+        'password': 'Password1!', # TODO Implement bycript
     },
     {
         'name': 'Marcone',
         'email': 'marcone@gmail.com',
-        'password': 'password', # TODO Implement bycript
+        'password': 'Password1!', # TODO Implement bycript
     }
 ]
     
