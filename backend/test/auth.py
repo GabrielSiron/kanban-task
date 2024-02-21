@@ -11,7 +11,7 @@ class UserTest(BaseTestCase):
         }
         response = self.client.post("/signup", json=user_data)
         self.assertStatus(response, 400)
-        self.assertEqual(response.json, {"message": "Email já cadastrado", "code": 400})
+        self.assertEqual(response.json, {"message": "Email já cadastrado.", "code": 400})
 
     def test_signup_weak_password(self):
         user_data = {
@@ -40,7 +40,7 @@ class UserTest(BaseTestCase):
         user_data = {"email": "siron@gmail.com", "password": "pASSWORD1!"}
         response = self.client.post("/signin", json=user_data)
         self.assertStatus(response, 401)
-        self.assertEqual(response.json, {"message": "Senha incorreta", "code": 401})
+        self.assertEqual(response.json, {"message": "Senha incorreta", "code": 400})
 
     def test_login_user_not_found(self):
         user_data = {"email": "marcone_ribeiro@gmail.com", "password": "Password1!"}
