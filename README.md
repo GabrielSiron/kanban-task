@@ -24,11 +24,29 @@ Se algum dos serviços não for necessário num dado momento, execute
 ```
 indicando o nome do serviço que você de fato fará uso.
 
+### Testes Unitários
+
+Testes unitários são de suma importância para o desenvolvimento sustentável de uma aplicação. Nossos testes rodam numa base de dados a parte, e devem abranger todos os endpoints que servimos na API.
+
+Na pasta `test`, temos o seguinte esqueleto:
+
+```
+| test/
+|---- seeder/
+|--------- __init__.py # arquivo que popula o database
+|---- __init__.py
+|---- data.py   # arquivo que alimenta o seeder
+|---- user.py   # arquivo de testes dos endpoints de user
+```
+
+Cada entidade terá seu próprio arquivo, onde seus testes devem ser implementados.
 ## Usando o Flask Migrate
 
 As alterações que realizamos nos models não refletem no Banco de Dados depois dele ter sido criado. Para que isso ocorra, nós devemos usar o Flask Migrate.
 
-Siga a documentação do Flask Migrate (https://flask-migrate.readthedocs.io/en/latest/) para adicionar futuras alterações de Banco.
+Se você nunca rodou a aplicação, as migrações de estrutura não serão necessárias. O Banco de Dados será gerado com a estrutura atual. Caso contrário, siga a documentação do Flask Migrate (https://flask-migrate.readthedocs.io/en/latest/) para que novas alterações sejam passadas ao banco, ou para adicionar futuras alterações.
+
+O Flask Migrate não necessariamente reconhecerá todas as mudanças realizadas. Portanto, talvez alguns dos scripts gerados tenham de ser manualmente alterados para que reflitam corretamente nossas modificações.
 
 ### Detalhes
 
