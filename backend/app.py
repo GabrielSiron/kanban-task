@@ -3,6 +3,7 @@ from infrastructure.database import db
 from infrastructure.database.entities import User
 from flask_migrate import Migrate
 from flask_cors import CORS
+from application.resources import auth_routes
 
 
 def create_app():
@@ -21,6 +22,8 @@ def create_app():
         migrate.init_app(app, db)
         db.create_all()
 
+    app.register_blueprint(auth_routes)
+    
     @app.get("/")
     def home():
         result = User.query.all()
