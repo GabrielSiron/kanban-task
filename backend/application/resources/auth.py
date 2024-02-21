@@ -8,11 +8,11 @@ from infrastructure.database.entities import User
 router = APIBlueprint("authentications", __name__)
 
 
-@router.post("/SignIn")
+@router.post("/signup")
 @input("name", str)
 @input("email", str)
 @input("password", str)
-def signin(name, email, password):
+def create_account(name, email, password):
     existing_user = User.query.filter_by(email=email).first()
     if existing_user:
         return {"message": "Email já cadastrado", "code": 400}
@@ -26,15 +26,13 @@ def signin(name, email, password):
         return {"message": "Usuário cadastrado com sucesso", "code": 201}
 
 
-@router.post("/Login")
+@router.post("/signin")
 @input("email", str)
 @input("password", str)
 def login(email, password):
     user = User.query.filter_by(email=email).first()
-    if user:
-        if bcrypt.checkpw(password.encode("utf-8"), user.password.encode("utf-8")):
-            return {"message": "Login bem-sucedido", "code": 200}
-        else:
-            return {"message": "Senha incorreta", "code": 401}
-    else:
+    if not(user):
         return {"message": "Usuário não encontrado", "code": 401}
+    if bcrypt.checkpw(password.encode("utf-8"), user.password.encode("utf-8")):
+            return {"message": "Login bem-sucedido", "code": 200}
+    return {"message": "Senha incorreta", "code": 401}
