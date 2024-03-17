@@ -48,7 +48,6 @@ def create_account(json_data):
         return jsonify(message="Usuário registrado!", token=token, code=200)
 
     except IntegrityError as err:
-        ic(str(err))
         return jsonify(message="Email já está em uso. Por favor, faça login", code=200)
     finally:
         db.session.close()
