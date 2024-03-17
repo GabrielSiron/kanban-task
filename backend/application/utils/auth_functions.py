@@ -28,7 +28,4 @@ def encript_password(password):
 
 
 def check_password(typed_password, user_password):
-    return bcrypt.checkpw(
-        typed_password.encode("utf-8"),
-        user_password
-    )
+    return bcrypt.checkpw(typed_password.encode("utf-8"), user_password)

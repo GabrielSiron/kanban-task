@@ -11,11 +11,5 @@ class User(db.Model, BaseClass):
 
     @classmethod
     def email_already_in_use(cls, email):
-        user = (
-            db.session.execute(
-                select(cls.email)
-                .where(cls.email == email)
-            )
-            .first()
-        )
+        user = db.session.execute(select(cls.email).where(cls.email == email)).first()
         return user
