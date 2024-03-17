@@ -6,7 +6,7 @@ class Task(db.Model, BaseClass):
     title = db.Column(db.String)
     description = db.Column(db.Text)
     date = db.Column(db.DateTime)
-    
+
     tag_id = db.Column(db.Integer, db.ForeignKey("tag.id"))
     tag_relation = db.relationship(
         "Tag", backref="Task", foreign_keys=tag_id, uselist=False

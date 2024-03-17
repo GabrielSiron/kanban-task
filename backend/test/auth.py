@@ -11,7 +11,9 @@ class UserTest(BaseTestCase):
         }
         response = self.client.post("/signup", json=user_data)
         self.assertStatus(response, 400)
-        self.assertEqual(response.json, {"message": "Email já cadastrado.", "code": 400})
+        self.assertEqual(
+            response.json, {"message": "Email já cadastrado.", "code": 400}
+        )
 
     def test_signup_weak_password(self):
         user_data = {

@@ -4,9 +4,9 @@ from infrastructure.database.base import BaseClass
 
 class Day(db.Model, BaseClass):
     date = db.Column(db.DateTime)
-    
-    tasks = db.relationship('Task', backref='user', overlaps="tasks,user")
-    
+
+    tasks = db.relationship("Task", backref="user", overlaps="tasks,user")
+
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     user_relation = db.relationship(
         "User", backref="Day", foreign_keys=user_id, uselist=False
