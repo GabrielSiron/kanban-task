@@ -46,6 +46,7 @@ class UserTest(BaseTestCase):
 
     def test_login_user_not_found(self):
         user_data = {"email": "marcone_ribeiro@gmail.com", "password": "Password1!"}
+
         response = self.client.post("/signin", json=user_data)
         self.assertStatus(response, 401)
         self.assertEqual(

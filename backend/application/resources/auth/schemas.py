@@ -1,7 +1,6 @@
-from apiflask import Schema, abort
-from apiflask.fields import String, Integer, DateTime
-from apiflask.validators import Length, Email, Regexp
-from infrastructure.database.entities import User
+from apiflask import Schema
+from apiflask.fields import String
+from apiflask.validators import Email, Regexp
 
 
 class CreateAccountValidator(Schema):
