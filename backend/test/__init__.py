@@ -1,6 +1,5 @@
 from flask_testing import TestCase
 from apiflask import APIFlask
-from flask_sqlalchemy import SQLAlchemy
 from test.seeder import Seeder
 from infrastructure.database import db
 from application.resources import user_routes, auth_routes

@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from infrastructure.database.entities import User, Cycle, Day, Task, Tag
 from infrastructure.database import db
 

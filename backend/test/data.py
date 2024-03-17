@@ -25,9 +25,21 @@ USERS = [
 ]
 
 CYCLES = [
-    {"limit_date": datetime(2024, 6, 19), "title": "Primeira Semana", "user_id": 1},
-    {"limit_date": datetime(2024, 6, 19), "title": "Primeira Semana", "user_id": 2},
-    {"limit_date": datetime(2024, 6, 19), "title": "Primeira Semana", "user_id": 3},
+    {
+        "limit_date": datetime(2024, 6, 19),
+        "title": "Primeira Semana",
+        "user_id": 1
+    },
+    {
+        "limit_date": datetime(2024, 6, 19),
+        "title": "Primeira Semana",
+        "user_id": 2
+    },
+    {
+        "limit_date": datetime(2024, 6, 19),
+        "title": "Primeira Semana",
+        "user_id": 3
+    },
 ]
 
 DAYS = [
@@ -42,4 +54,11 @@ DAYS = [
     {"date": datetime(2024, 2, 3), "cycle_id": 3},
 ]
 
-TASKS = [{"title": "Lavar os Pratos", "description": "", "tag_id": 1, "day_id": 1}]
+TASKS = [
+    {
+        "title": "Lavar os Pratos",
+        "description": "",
+        "tag_id": 1,
+        "day_id": 1
+    }
+]

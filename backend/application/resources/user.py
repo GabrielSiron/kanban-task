@@ -1,4 +1,4 @@
-from apiflask import APIBlueprint, abort
+from apiflask import APIBlueprint
 
 from infrastructure.database.entities import User
 
